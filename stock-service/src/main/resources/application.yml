@@ -1,0 +1,17 @@
+server:
+  port: 8763
+
+spring:
+  application:
+    name: stock-service
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
