@@ -1,5 +1,6 @@
 package com.example.orderservice.controller;
 
+import annotation.AspectLog;
 import com.example.orderservice.service.StockClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,8 @@ public class OrderController {
     @Resource
     private StockClient stockClient;
 
+
+    @AspectLog
     @GetMapping("/orderService")
     public String orderService(){
         String order = "order success!";
