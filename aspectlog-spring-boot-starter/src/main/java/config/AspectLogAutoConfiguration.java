@@ -17,10 +17,6 @@ import org.springframework.core.PriorityOrdered;
  */
 
 @Aspect
-@EnableAspectJAutoProxy(exposeProxy = true, proxyTargetClass = true)
-@Configuration
-@ConditionalOnProperty(prefix = "aspectLog", name = "enable",
-        havingValue = "true", matchIfMissing = true)
 public class AspectLogAutoConfiguration implements PriorityOrdered {
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
@@ -37,7 +33,7 @@ public class AspectLogAutoConfiguration implements PriorityOrdered {
         taskName = taskName.trim();
         long time = System.currentTimeMillis();
         Object result = thisJoinPoint.proceed();
-        logger.info("method:{} run :{} ms", taskName,
+        logger.info(">>>>>>>>method:{} run :{} ms", taskName,
                 (System.currentTimeMillis() - time));
         return result;
     }
